@@ -1,0 +1,174 @@
+<div class="container1">
+<div role="tabpanel" class="tab-pane" id="incomingMsg">
+<div class="row" style="padding-top: 8em;">
+<div class="col-md-6 m-auto">
+  <div class="card card-body">
+    <h1>All Messages</h1>
+    <form >
+    <table class="table table-inverse">
+    <tbody>
+      <% for(var i = 0; i < messages.length; i++) { %>
+        <tr>
+        <td><a href="/users/seePost?mid=<%= messages[i].mid %>"
+        id=<%= messages[i].mtitle %>
+        class=""><%= messages[i].mtitle %></a>
+        <td id='<%= messages[i].mauthor%>'><%= messages[i].mauthor %></td>
+        <td id='<%= messages[i].mtimestamp%>'><%= messages[i].mtimestamp %></td>         
+        </tr>
+        <% } %>
+    </tbody>
+    </table>
+    </form>
+    
+    <form action="/users/searchMsg" method="POST">
+      <select
+        id="visibility"
+        name="visibility"
+        class="form-control visibility"
+      >
+      <option value="block">block</option>
+      <option value="neighbors">neighbors</option>
+      <option value="friends">friends</option>
+      </select>
+      <select
+        id="readability"
+        name="readability"
+        class="form-control readability"
+      >
+      <option value="all">all messages</option>
+      <option value="unread">unread messages</option>
+      </select>
+    
+      <div class="incommingText">
+      <input
+        type="text"
+        id="key"
+        name="key"
+        class="form-control"
+        placeholder="Enter keywords"
+      />
+      </div>
+      <button type="search" class="btn submit btn-block">search</button>
+    </form action="/users/sendPost" method="POST">
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<script>
+  $('#myTabs a').click(function (e) {
+    e.preventDefault()
+    $(this).parent("li").siblings().removeClass('active')
+    $(this).parent("li").addClass('active')
+    $(this).tab('show')
+  })
+      //   $('#myTabs li:first').tab('show') // Select tab by name
+      //   $('#myTabs li:last').tab('show') // Select first tab
+      //   $('#myTabs li:last').tab('show') // Select last tab
+      //   $('#myTabs li:eq(2) ').tab('show') // Select third tab (0-indexed)
+</script>
+
+<style>
+.container1 {
+  background-color: black;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.userImage {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  border: 1px solid #fff;
+  overflow: hidden;
+}
+
+.userInfo {
+  border: 1px solid #eeeeee;
+  padding-left: 25px;
+  border-radius: 5px;
+}
+
+.form-group {
+  display: inline;
+}
+
+form {
+  width: 100%;
+}
+
+.form-group {
+  margin-top: 10px;
+}
+.title{
+  margin-bottom: 10px;
+}
+.submit {
+  margin-top: 10px;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #000000;
+  color: #000000;
+}
+
+.nav-tabs li {
+  padding: 0 20px;
+  height: 60px;
+  box-sizing: border-box;
+  line-height: 60px;
+  display: inline-block;
+  list-style: none;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav {
+  background-color: #ffffff;
+}
+
+.tab-content {
+  background-color: #fff;
+}
+
+.tab-pane h {
+  font-size: 32px;
+}
+
+.nav1 {
+  float: left;
+  padding-left: 4em;
+  padding-top: 4em;
+}
+
+.nav1 span {
+  padding: 0 20px;
+}
+
+.nav1 .father {
+  color: #666666;
+  font-size: 40px;
+}
+
+.nav1 .son {
+  color: #666666;
+  font-size: 20px;
+}
+.visibility{
+  margin-top: 10px;
+}
+.readability{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.nav1 .active a {
+  color: black;
+}
+</style>

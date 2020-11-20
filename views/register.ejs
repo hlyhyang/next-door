@@ -1,0 +1,96 @@
+<div class="container1 row">
+  <div class="col-md-6 bg">
+    <p>Build by you and your neighbor</p>
+    <p>Keep up with everything around you</p>
+    <p>Join nextdoor today</p>
+  </div>
+  <div class="col-md-6 card1">
+    <div class="">
+      <h1 class="text-center mb-3">
+        Register
+      </h1>
+      <%- include('partials/messages.ejs') %>
+      <form action="/users/register" method="POST" class="register">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="name" id="name" name="name" class="form-control" placeholder="Enter Name"
+            value="<%= typeof name != 'undefined' ? name : '' %>" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email"
+            value="<%= typeof email != 'undefined' ? email : '' %>" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Create Password"
+            value="<%= typeof password != 'undefined' ? password : '' %>" />
+        </div>
+        <div class="form-group">
+          <label for="password2">Confirm Password</label>
+          <input type="password" id="password2" name="password2" class="form-control" placeholder="Confirm Password"
+            value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="address" id="address" name="address" class="form-control" placeholder="Enter Address"
+            value="<%= typeof address != 'undefined' ? address : '' %>" />
+        </div>
+        <div class="form-group">
+          <label for="postcode">Postcode</label>
+          <input type="postcode" id="postcode" name="postcode" class="form-control" placeholder="Enter Postcode"
+            value="<%= typeof postcode != 'undefined' ? postcode : '' %>" />
+        </div>
+        <button type="submit" class="btn submit btn-block">
+          Register
+        </button>
+      </form>
+      <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+<style>
+  .container1 {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+  }
+
+  .card1 {
+    background-color: white;
+    color: #000;
+    opacity: 1;
+    font-size: 16px;
+    padding: 14em 2em 2em 2em;
+  }
+  .register {
+   padding: 2em 6em 6em 6em;
+  }
+  .submit{
+    display: inline-block;
+    margin: 30px 10px 20px 10px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid #000000;
+    color: #000000;
+    line-height: 35px;
+  }
+  .bg {
+    background-color: black;
+    color: #ffffff;
+    padding-top: 16em;
+    padding-left: 8em;
+  }
+  .bg p {
+    font-size: 40px;
+    font-style: initial;
+    margin-bottom: 30px;
+  }
+</style>

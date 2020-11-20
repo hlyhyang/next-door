@@ -1,0 +1,51 @@
+<%- include('partials/messages.ejs') %>
+<div class="container1">
+    <div class="col-md-9 card1">
+        <h>Neighbor Suggestion</h>
+        <% for(var i = 0; i < nReqs.length; i++) { %>
+        <form action="/users/sendNReq" method="post">
+            <button name="nReqs" value=<%= nReqs[i].uid %> id=<%= nReqs[i].uid %> class="btn btn-warning">add <%= nReqs[i].uid %>as neighbor</button>
+        </form>
+        <% } %>
+
+        <h>Friends Suggestion</h>
+        <% for(var i = 0; i < fReqs.length; i++) { %>
+        <form action="/users/sendFReq" method="post">
+            <button name="fReqs" value=<%= fReqs[i].uid %> id=<%= fReqs[i].uid %> class="btn btn-warning">add  <%= fReqs[i].uid %> as friend</button>
+        </form>
+        <% } %>
+        
+    </div>
+</div>
+<style>
+    h {
+        font-size: 40px;
+    }
+
+    .container1 {
+        background-color: #000000;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .card1 {
+        position: absolute;
+        top: 20%;
+        left: 12%;
+        padding-top: 1em;
+        background-color: #ffffff;
+        text-align: center;
+    }
+
+    .submit {
+        margin-top: 10px;
+        display: inline-block;
+        text-align: center;
+        border: 1px solid #000000;
+        color: #000000;
+        width: 200px;
+    }
+</style>

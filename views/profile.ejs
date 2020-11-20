@@ -1,0 +1,99 @@
+<div class="container1">
+  <nav class="navbar">
+    <h1 style="color: #ffffff;">Nextdoor</h1>
+  </nav>
+  <div class="row">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3">
+          <i class="fas fa-user-plus"></i> Update Information
+        </h1>
+        <%- include('partials/messages.ejs') %>
+        <form action="/users/updateProfile" method="POST">
+          <div class="form-group">
+            <label for="user">user</label>
+            <h2><%=user %></h2>
+          </div>
+          <div class="form-group">
+            <label for="address">address</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              class="form-control"
+              placeholder="update address"
+              value="<%=address %>"
+            />
+          </div>
+          <div class="postcode">
+            <label for="postcode">postcode</label>
+            <input
+              type="number"
+              id="postcode"
+              name="postcode"
+              class="form-control"
+              placeholder="update postcode"
+              value="<%=postcode %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="introduction">introduction</label>
+            <input
+              type="text"
+              id="introduction"
+              name="introduction"
+              class="form-control"
+              placeholder="update introduction"
+              value="<%=introduction %>"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="photo">photo</label>
+            <input
+            type="text"
+            id="photo"
+            name="photo"
+            class="form-control"
+            placeholder="update photo"
+            value="<%= photo %>"
+            />
+          </div>
+          <button type="submit" class="btn submit btn-block">
+            edit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<a href="/users/mainPage" class="btn btn-secondary">back</a>
+<style>
+  .container1 {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .card {
+    font-size: 16px;
+    padding: 0em 5em 2em 5em;
+  }
+  .title {
+    margin-top: 5rem;
+  }
+  .submit {
+    display: inline-block;
+    margin: 30px 10px 20px 0px;
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    border: 1px solid #000000;
+    color: #000000;
+    line-height: 35px;
+  }
+
+</style>

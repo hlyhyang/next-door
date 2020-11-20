@@ -1,0 +1,20 @@
+<% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(e) { %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <%= e.msg %>
+
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% }); %> <% } %> 
+
+
+<% if(typeof notification != 'undefined'){ %> <% notification.forEach(function(n) { %>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <%= n.msg %>
+  
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% }); %> <% } %> 

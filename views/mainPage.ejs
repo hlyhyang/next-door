@@ -1,0 +1,150 @@
+<div class="container1">
+        <nav class="navbar">
+          <span class="navbar-brand mb-0 h1">NextDoor</span>
+          <div class="text-button">
+            <span>welcome,</span>
+            <span><%= user %></span>
+            <a class='logout' href="/users/logout">logout</a>
+          </div>
+        </nav>
+        <div class="">
+          <div class="nav1">
+            <ul class="nav nav-tabs flex-column" role="tablist" id="myTabs">
+              <li role="presentation"><a class='father' href="/users/profile">Profile</a>
+              </li>
+              <span class="father">Relation</span>
+              <li role="presentation"><a class='son' href="/users/addConnection">Add Connection</a></li>
+              <li role="presentation"><a class='son' href="/users/requests">Friends/Block Requests</a>
+              </li>
+              <li role="presentation"><a class='son' href="/users/blockApply" >Join Local Block</a>
+              </li>
+              <span class="father">Relation</span>
+              <li role="presentation"><a class='son' href="/users/postMsg" >Post Message</a>
+              </li>
+              <li role="presentation"><a class='son' href="/users/messages" >Incoming Messages</a>
+              </li>
+              <li role="presentation"><a class='father' href="#map" aria-controls="map" role="tab" data-toggle="tab">Map</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <form >
+        <table class="table table-inverse">
+        <tbody>
+                <% for(var i = 0; i < messages.length; i++) { %>
+                <tr>
+                <td><a href="/users/seePost?mid=<%= messages[i].mid %>"
+                id=<%= messages[i].mtitle %>
+                class=""><%= messages[i].mtitle %></a>
+                <td id='<%= messages[i].mauthor%>'><%= messages[i].mauthor %></td>
+                <td id='<%= messages[i].mtimestamp%>'><%= messages[i].mtimestamp %></td>         
+                </tr>
+                <% } %>
+        </tbody>
+        </table>
+        </form>
+</div>
+
+
+<style>
+.navbar {
+background-color: black;
+color: #fff;
+}
+.logout{
+color: #fff;
+padding-left: 7px;
+}
+.container1 {}
+
+.userImage {
+border-radius: 50%;
+height: 150px;
+width: 150px;
+border: 1px solid #fff;
+overflow: hidden;
+}
+
+.userInfo {
+border: 1px solid #eeeeee;
+padding-left: 25px;
+border-radius: 5px;
+}
+
+.form-group {
+display: inline;
+}
+
+form {
+width: 100%;
+}
+
+.form-group {
+margin-top: 10px;
+}
+.title{
+margin-bottom: 10px;
+}
+.submit {
+margin-top: 10px;
+display: inline-block;
+text-align: center;
+border: 1px solid #000000;
+color: #000000;
+}
+
+.nav-tabs li {
+padding: 0 20px;
+height: 60px;
+box-sizing: border-box;
+line-height: 60px;
+display: inline-block;
+list-style: none;
+font-weight: 500;
+position: relative;
+}
+
+.nav {
+background-color: #ffffff;
+}
+
+.tab-content {
+background-color: #fff;
+}
+
+.tab-pane h {
+font-size: 32px;
+}
+
+.nav1 {
+float: left;
+padding-left: 4em;
+padding-top: 4em;
+}
+
+.nav1 span {
+padding: 0 20px;
+}
+
+.nav1 .father {
+color: black;
+font-size: 40px;
+}
+
+.nav1 .son {
+color: #666666;
+font-size: 20px;
+}
+.visibility{
+margin-top: 10px;
+}
+.readability{
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+
+</style>
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <h2><%=user %></h2>
+    <h class="address" value =<%= address %>><%=address %></h>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAe0fCsEMIVXq6XvfO1AesgChOdY2zdPfQ&callback=initMap"
+    ></script>
+    <script>
+    function initMap() {
+        console.log('hi');
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+    center: {lat: -34.397, lng: 150.644}
+  });
+
+  var geocoder = new google.maps.Geocoder();
+  var arr = $.map($('.address'), function (el) { console.log(el.value);return el.value; });
+  geocodeAddress(geocoder, map,arr);  
+}
+
+function geocodeAddress(geocoder, resultsMap,address) {
+    console.log('what');
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === 'OK') {
+      resultsMap.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+    </script>
+  </body>
+</html>
+

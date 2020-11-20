@@ -1,0 +1,120 @@
+<div class="container1">
+<a href="/users/mainPage" class="btn btn-secondary">back</a>
+<div role="tabpanel" class="tab-pane" id="joinBlock">
+    <div class="row" style="padding-top: 8em;">
+      <div class="col-md-6 m-auto">
+        <div class="card card-body">
+          <%- include('partials/messages.ejs') %>
+
+          <form action="/users/blkStatus" method="POST">
+            <label for="user">Join Your Block Now</label>
+            <h2><%=user %></h2>
+            <h>Your default block is block 4</h>
+            <button type="submit" class="btn submit btn-block">submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <style>
+    .container1 {
+      background-color: black;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+        
+          .userImage {
+            border-radius: 50%;
+            height: 150px;
+            width: 150px;
+            border: 1px solid #fff;
+            overflow: hidden;
+          }
+        
+          .userInfo {
+            border: 1px solid #eeeeee;
+            padding-left: 25px;
+            border-radius: 5px;
+          }
+        
+          .form-group {
+            display: inline;
+          }
+        
+          form {
+            width: 100%;
+          }
+        
+          .form-group {
+            margin-top: 10px;
+          }
+        .title{
+          margin-bottom: 10px;
+        }
+          .submit {
+            margin-top: 10px;
+            display: inline-block;
+            text-align: center;
+            border: 1px solid #000000;
+            color: #000000;
+          }
+        
+          .nav-tabs li {
+            padding: 0 20px;
+            height: 60px;
+            box-sizing: border-box;
+            line-height: 60px;
+            display: inline-block;
+            list-style: none;
+            font-weight: 500;
+            position: relative;
+          }
+        
+          .nav {
+            background-color: #ffffff;
+          }
+        
+          .tab-content {
+            background-color: #fff;
+          }
+        
+          .tab-pane h {
+            font-size: 32px;
+          }
+        
+          .nav1 {
+            float: left;
+            padding-left: 4em;
+            padding-top: 4em;
+        
+          }
+        
+          .nav1 span {
+            padding: 0 20px;
+          }
+        
+          .nav1 .father {
+            color: #666666;
+            font-size: 40px;
+          }
+        
+          .nav1 .son {
+            color: #666666;
+            font-size: 20px;
+          }
+          .visibility{
+            margin-top: 10px;
+          }
+          .readability{
+            margin-top: 10px;
+            margin-bottom: 10px;
+          }
+        
+          .nav1 .active a {
+            color: black;
+          }
+        </style>

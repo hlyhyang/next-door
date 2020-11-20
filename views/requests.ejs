@@ -1,0 +1,61 @@
+
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        console.log('hi');
+        $(this).hide();
+    });
+});
+</script>
+<div class="container1"></div>
+<div class="col-md-9 card1">
+<h>Block Requests</h>
+<form action="/users/acceptBlkReq" method="post">
+<% for(var i = 0; i < blockReqs.length; i++) { %>
+<button name="blockReqs" value=<%= blockReqs[i].uid %> id=<%= blockReqs[i].uid %> class="btn btn-warning">agree
+<%= blockReqs[i].uid %> to ur block?</button>
+<% } %>
+</form>
+
+
+<h>Friend Requests</h>
+<form action="/users/acceptFReq" method="post">
+    <% for(var i = 0; i < friendReqs.length; i++) { %>
+    <button name="friendReqs" value=<%= friendReqs[i].friend1 %> id=<%= friendReqs[i].friend1 %> class="btn btn-warning">agree
+    <%= friendReqs[i].friend1 %> to be your friend?</button>
+    <% } %>
+</form>
+</div>
+</div>
+<style>
+    h {
+        font-size: 40px;
+    }
+
+    .container1 {
+        background-color: #000000;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .card1 {
+        position: absolute;
+        top: 20%;
+        left: 12%;
+        padding-top: 1em;
+        background-color: #ffffff;
+        text-align: center;
+    }
+
+    .submit {
+        margin-top: 10px;
+        display: inline-block;
+        text-align: center;
+        border: 1px solid #000000;
+        color: #000000;
+        width: 200px;
+    }
+</style>
